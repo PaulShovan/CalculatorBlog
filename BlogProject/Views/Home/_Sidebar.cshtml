@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BlogProject.Models.Class.Post>
+
+<div class="sidebar-content">
+     <h3>Recent Posts</h3>
+    <ul>
+        @foreach (var post in Model)
+        {
+            <li>@Html.ActionLink(post.PostTitle,"")</li>
+        }
+    </ul>
+</div>
+

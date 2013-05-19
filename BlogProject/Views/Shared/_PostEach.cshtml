@@ -1,0 +1,19 @@
+﻿@model BlogProject.Models.Class.Post
+<div class="post-thumb">
+    <div class="thumb-image">
+        <img src="~/Images/microsoft_new_logo-square-150x150.png" />
+    </div>
+    <div class="about-post">
+            <div class="tag-name">
+                About : 
+                @Html.ActionLink(@Model.Tag,"")
+            </div>
+            <h4 class="post-title">@Model.PostTitle</h4>
+            <p class="post-by">By: @Model.PostedBy Date: @Model.PostDate</p>
+            <div class="short-descriptiom">
+                <p class="description-full">@Model.Body</p>
+            </div>
+            <a class="readLink" href="#">Read full article</a>
+     </div>
+</div>
+

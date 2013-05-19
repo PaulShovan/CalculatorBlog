@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        
+        
+    </head>
+    <body>
+        <header style="border-bottom: 2px solid black;">
+            <div class="content-wrapper" id="header">
+                 @Html.TextArea("editor", new {@class = "ckeditor", @id = "aboutme"})
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("News", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        @RenderSection("featured", required: false)
+        <div id="body">
+                <div class="content-element">
+                    @RenderBody()
+                </div>
+                <div id="sidebar">
+                    <div class="sidebar-content">
+                        <div id="search">
+                            <form>
+                                <input type="text" id="searchText" value="" name="Search"/>
+                                <input id="searchButton" type="button" value="Search" />
+                            </form>
+                        </div>
+                    </div>
+                     
+                    <div class="sidebar-content">
+                        <p>sidebar content</p>
+                    </div>
+                    <div class="sidebar-content">
+                        <p>sidebar content</p>
+                    </div>
+                </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <p>This is footer</p>
+            </div>
+        </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

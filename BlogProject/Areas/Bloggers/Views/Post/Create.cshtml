@@ -1,0 +1,82 @@
+﻿@model BlogProject.Models.Class.Post
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+<!--<script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    $('.ckeditor').ckeditor();
+</script>-->
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        
+        <legend>Post</legend>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PostTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostTitle)
+            @Html.ValidationMessageFor(model => model.PostTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PostDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostDate)
+            @Html.ValidationMessageFor(model => model.PostDate)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Body)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(Model => Model.Body, new {@class = "ckeditor", @id = "PostBody"})       
+            @Html.ValidationMessageFor(model => model.Body)
+            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tag)
+            @Html.ValidationMessageFor(model => model.Tag)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PostSummary)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostSummary)
+            @Html.ValidationMessageFor(model => model.PostSummary)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UsefulRate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UsefulRate)
+            @Html.ValidationMessageFor(model => model.UsefulRate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    
+    @Scripts.Render("~/bundles/jqueryval")
+}

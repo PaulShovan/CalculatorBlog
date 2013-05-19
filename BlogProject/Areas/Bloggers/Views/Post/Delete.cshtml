@@ -1,0 +1,68 @@
+﻿@model BlogProject.Models.Class.Post
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PostTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PostDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Blogger.FullName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Blogger.FullName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Body)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tag)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tag)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PostSummary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostSummary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UsefulRate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UsefulRate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
